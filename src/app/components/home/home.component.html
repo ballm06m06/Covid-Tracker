@@ -1,0 +1,70 @@
+<div class="jumbotron bg-white text-center">
+    <h1 class="display-4">Coronavirus Tracker</h1>
+    <hr class="my-4">
+
+    <div class="ui form">
+        <div class="inline fields">
+          <label for="caseType">Select Case Type:</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" id = 'c' #c (click)='updateChart(c)' value = "c" name="casetype" checked="" tabindex="0" class="hidden">
+              <label for = 'c'>Confirmed</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" id = 'd' #d (click)='updateChart(d)' value = "d" name="casetype" tabindex="0" class="hidden">
+              <label for = 'd'>Deaths</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" id = 'r' #r (click)='updateChart(r)' value = "r" name="casetype" tabindex="0" class="hidden">
+              <label for = 'r'>Recovered</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" id = 'a' #a (click)='updateChart(a)' value = "a" name="casetype" tabindex="0" class="hidden">
+              <label for = 'a'>Active</label>
+            </div>
+          </div>
+        </div>
+
+    <app-dashboard-card 
+        [totalConfirmed]='totalConfirmed' 
+        [totalActice]='totalActive' 
+        [totalDeaths]='totalDeaths'
+        [totalRecovered]='totalRecovered'
+    ></app-dashboard-card>
+</div>
+
+<div class="row">
+    <div class="col">
+        <google-chart 
+          [type]='chart.ColumnChart' 
+          [data]='datatable' 
+          [height]='chart.height' 
+          [width]='chart.width'
+          [options]='chart.options'
+        ></google-chart>
+    </div>
+    <div class="col">
+        <google-chart 
+          [type]='chart.PieChart' 
+          [data]='datatable' 
+          [height]='chart.height' 
+          [width]='chart.width'
+          [options]='chart.options'  
+        ></google-chart>
+    </div>
+    <div class="col">
+      <!-- <google-chart 
+        [type]='chart.GeoChart' 
+        [data]='datatable' 
+        [height]='chart.height' 
+        [width]='chart.width'
+        [options]='chart.options'  
+      ></google-chart> -->
+  </div>
+</div>
