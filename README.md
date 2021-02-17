@@ -9,7 +9,6 @@
 
   <p align="center">
     A data visualiztion tool to track Coronavirus cases!
-    
     <br />
     <br />
     <a href="https://haiyya.tk/">Live Demo</a>
